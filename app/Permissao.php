@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Permissao extends Model
 {
-    protected $table = 'permisoes';
+    protected $table = 'permissoes';
     protected $fillable = ['nome', 'descricao'];
 
     public function papel()
