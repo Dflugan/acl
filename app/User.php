@@ -43,6 +43,12 @@ class User extends Authenticatable
         return $this->id == 1;
     }
 
+    public function papeis()
+    {
+        return $this->belongsToMany(Papel::class)
+    }
+
+
 
 
 }
