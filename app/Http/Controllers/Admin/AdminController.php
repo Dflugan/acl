@@ -15,6 +15,9 @@ class AdminController extends Controller
 
     public function index()
     {
-    	return view('admin.index');
+    	$caminhos = [
+    		['url'=>'','titulo'=>'Admin']
+    	];
+    	return view('admin.index',compact('caminhos'));
     }
 }
