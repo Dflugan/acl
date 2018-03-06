@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function papeis()
     {
-        return $this->belongsToMany(Papel::class)
+        return $this->belongsToMany(Papel::class);
     }
 
 

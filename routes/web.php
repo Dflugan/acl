@@ -195,6 +195,9 @@ Route::get('/empresa',function(){
   return view('site.empresa',compact('galeria'));
 });
 
-Route::get('/home', 'HomeController@index');
-Route::get('/home/{id}', 'HomeController@detalhe');
+Route::group(['middleware'=>'auth', 'prefix'=>'admin'], function(){
+  Route::get('/',['as'=>'admin.index','uses'=>'Admin\AdminController@index']);
+});
+
+
 
