@@ -197,6 +197,9 @@ Route::get('/empresa',function(){
 
 Route::group(['middleware'=>'auth', 'prefix'=>'admin'], function(){
   Route::get('/',['as'=>'admin.index','uses'=>'Admin\AdminController@index']);
+  Route::resource('usuario', 'Admin\UsuarioController');
+
+  Route::get('/usuario/papel/{id}',['as'=>'admin.usuario.papel','uses'=>'Admin\UsuarioController@papel']);
 });
 
 
