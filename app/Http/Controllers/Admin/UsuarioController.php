@@ -36,6 +36,23 @@ class UsuarioController extends Controller
         return view('admin.usuarios.papel',compact('usuario','papeis','caminhos'));
     }
 
+    public function papelStore(Request $request, $id)
+    {
+        $usuario = User::find($id);
+        $dados = $request->all();
+        $papel = Papel::find($dados['papel_id']);
+        $usuario->adiconarPapel($papel);
+        return redirect()->back();
+    }
+
+    public function papelDestroy($id, $papel_id)
+    {
+        $usuario = User::find($id);
+        $papel = Papel::find($papel_id);
+        $usuario->removePapel($papel);
+        return redirect()->back();        
+    }
+
     /**
      * Show the form for creating a new resource.
      *

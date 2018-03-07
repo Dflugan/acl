@@ -7,7 +7,7 @@
 		@include('admin._caminho')
 
 		<div class="row">
-			<form method="POST">
+			<form action="{{route('usuarios.papel.store', $usuario->id)}}" method="POST">
 			{{ csrf_field()}}
 			<div class="input-field">
 				<select name="papel_id">
@@ -35,8 +35,8 @@
 						<td>{{$papel->nome}}</td>
 						<td>{{$papel->descricao}}</td>
 						<td>
-							<form method="POST">
-								{{method_field('DELETE')}}
+							<form action="{{route('usuarios.papel.destroy',[$usuario->id, $papel->id])}}" method="get">
+								
 								{{csrf_field()}}
 								<button title="Deletar" class="btn red"><i class="material-icons">delete</i></button>
 							</form>
