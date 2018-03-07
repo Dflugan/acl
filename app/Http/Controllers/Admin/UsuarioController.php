@@ -32,8 +32,8 @@ class UsuarioController extends Controller
             ['url'=>'/admin', 'titulo'=>'Admin'],
             ['url'=>route('usuario.index'), 'titulo'=>'Usuários'],
             ['url'=>'', 'titulo'=>'Papel'],
-            return view('admin.usuario.papel',compact('usuario','papeis','caminhos'));
         ];
+        return view('admin.usuarios.papel',compact('usuario','papeis','caminhos'));
     }
 
     /**
