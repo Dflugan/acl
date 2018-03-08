@@ -47,7 +47,7 @@
                     <p>Lista de papéis do sistema.</p>
                     </div>
                     <div class="card-action">
-                    <a href="#">Visuallizar</a>
+                    <a href="{{route('papeis.index')}}">Visuallizar</a>
                     </div>
                 </div>
             </div>

@@ -196,12 +196,16 @@ Route::get('/empresa',function(){
 });
 
 Route::group(['middleware'=>'auth', 'prefix'=>'admin'], function(){
-  Route::get('/',['as'=>'admin.index','uses'=>'Admin\AdminController@index']);
-  Route::resource('usuario', 'Admin\UsuarioController');
 
-  Route::get('usuarios/papel/{id}', ['as'=>'usuarios.papel','uses'=>'Admin\UsuarioController@papel']);
-  Route::post('usuarios/papel/{papel}', ['as'=>'usuarios.papel.store','uses'=>'Admin\UsuarioController@papelStore']);
-  Route::get('usuarios/papel/{usuario}/{papel}', ['as'=>'usuarios.papel.destroy','uses'=>'Admin\UsuarioController@papelDestroy']);
+Route::get('/',['as'=>'admin.index','uses'=>'Admin\AdminController@index']);
+
+Route::resource('usuario', 'Admin\UsuarioController');
+Route::get('usuarios/papel/{id}', ['as'=>'usuarios.papel','uses'=>'Admin\UsuarioController@papel']);
+Route::post('usuarios/papel/{papel}', ['as'=>'usuarios.papel.store','uses'=>'Admin\UsuarioController@papelStore']);
+Route::get('usuarios/papel/{usuario}/{papel}', ['as'=>'usuarios.papel.destroy','uses'=>'Admin\UsuarioController@papelDestroy']);
+
+Route::resource('papeis', 'Admin\PapelController');
+Route::get('papeis/destroy/{id}', ['as'=>'papeis.destroy','uses'=>'Admin\PapelController@destroy']);
 
 });
 
